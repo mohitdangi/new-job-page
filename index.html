@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      a{
+        color: #ff9500;
+      }
+      a:hover{
+        color: #ff9500;
+      }
+      .post {
+        text-align: center;
+        color: #ff9500;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        line-height: 17px;
+      }
+
+      .heading {
+        color: #414b5d;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 36px;
+        margin: 0;
+        text-align: center;
+        padding-bottom: 50px;
+      }
+      .product-card {
+        background-color: #fff;
+        border: 1px solid #dfe6ed;
+        border-radius: 4px;
+        padding: 30px 37px;
+        box-shadow: rgba(9, 50, 131, 0.2) 0px 3px 8px 0px;
+      }
+      .flex{
+        display: flex;
+         
+      }
+      .borderr{
+        border-right: 1px solid #c5ced7;
+        margin: 0px 30px;
+      }
+      .card-heading {
+        color: #ff9500;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        /* line-height: 17px; */
+        margin-bottom: 0;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      .card-label {
+        color: #414b5d;
+        font-size: 12px;
+        font-weight: 600;
+        /* line-height: 14px; */
+        margin-bottom: 22px;
+        margin-top: 0;
+        text-align: center;
+      }
+      .card-currency {
+        font-size: 14px;
+        margin-left: -11px;
+        padding-top: 9px;
+        position: absolute;
+        text-align: center;
+      }
+      .card-price {
+        color: #191b1f;
+        font-size: 40px;
+        font-weight: 200;
+        line-height: 56px;
+        text-align: center;
+      }
+      .available-location {
+        color: #191b1f;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        margin-bottom: 8px;
+        padding: 8px 0;
+        text-align: center;
+      }
+      .card-available-features {
+        display: flex;
+        padding-bottom: 12px;
+        padding-top: 12px;
+      }
+      .card-feature-available-image {
+        background-image: url(https://t3.ftcdn.net/jpg/00/94/09/56/360_F_94095676_O7ZY7319DALHKpR9ItAJVk4V77Vu54JJ.jpg);
+        background-size: 100% 100%;
+        height: 15px;
+        min-width: 15px;
+      }
+      .card-feature-available-text {
+        color: #191b1f;
+        cursor: default;
+        /* font-family: Nunito; */
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        padding-left: 10px;
+        text-align: left;
+      }
+      .card-product-quantity-container {
+        border-bottom: 1px dashed #c5ced7;
+        border-top: 1px dashed #c5ced7;
+        margin: 16px 0 8px;
+        padding-bottom: 8px;
+        padding-top: 8px;
+      }
+      .qualityDiv {
+        display: flex;
+      }
+      .quantity {
+        color: #191b1f;
+        font-family: Nunito;
+        font-size: 14px;
+        line-height: 20px;
+      }
+      .singleSelect {
+        flex: 1 1 0%;
+      }
+      .new-btn {
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        /* color: #191b1f; */
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 400;
+        height: 22px;
+        line-height: 17px;
+        padding: 0;
+        text-align: center;
+        width: 55px !important;
+      }
+      .totalPrice {
+        display: flex;
+        font-size: 14px;
+        /* font-weight: 600; */
+        /* padding-right: 7px; */
+        padding-left: 32px;
+      }
+
+      .discounts {
+        padding-bottom: 10px;
+        padding-top: 10px;
+        color: #414b5d;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 14px;
+      }
+      .buyBtn {
+        background-color: #ff9500;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px 0 rgba(9, 50, 131, 0.2);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 20px;
+        margin-bottom: 8px;
+        margin-top: 8px;
+        text-align: center;
+        width: 100%;
+        transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.buyBtn:hover {
+  background-color: white;
+  color: #ff9500;
+}
+      .cartBtn {
+        color: #ff9500;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px 0 rgba(9, 50, 131, 0.2);
+        border: 1px solid #ff9500;
+        background-color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 20px;
+        margin-bottom: 8px;
+        margin-top: 8px;
+        text-align: center;
+        width: 100%;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .cartBtn:hover{
+        background-color: #ff9500;
+        color: #fff;
+      }
+      .card-container {
+        gap: 30px;
+      }
+      .footerList {
+        color: #535252;
+        font-size: 11px;
+        padding-top: 5px;
+        padding-left: 4%;
+      }
+      .secondMain-container {
+        text-align: center;
+        padding-top: 3%;
+      }
+      .secondContainer {
+        gap: 80px;
+        padding-left: 20px;
+      }
+      .seondHeading {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 28px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+      .secondPara {
+        color: #232832;
+        font-size: 14px;
+        font-weight: 400;
+        height: 90px;
+        line-height: 20px;
+        margin: 0;
+      }
+      .customeCard {
+        padding: 34px 32px 0;
+      }
+      .super-thirdContainer {
+        padding-top: 3%;
+      }
+      .thirdMain-container {
+        padding-top: 7%;
+      }
+      .left {        
+        padding-left: 75px;
+        width: 100%;
+      }
+      .leftHeading {
+        color: #414b5d;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 40px;
+      }
+      .leftPara {
+        color: #232832;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        padding-top: 10px;
+      }
+      .fas-fa-arrow-right {
+        background-size: 100% 100%;
+        display: inline-block;
+        height: 10px;
+        margin-left: 7px;
+        margin-top: 1px;
+        width: 19px;
+      }
+      .right{
+        /* padding-right: 2%; */
+        height: 100%;
+        width: 100%;
+        text-align: center !important;
+      }
+      .third-container {
+        background-color: #f6fbff;
+        border-radius: 5px;
+      }
+      .fourthMain-container {
+        padding-top: 2%;
+      }
+      .fourth-container {
+        width: 100%;
+        /* max-width: 991px; */
+        margin: 0 auto;
+        position: relative;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0;
+        border: 1px solid #dfe6ed;
+        border-radius: 4px;
+        padding: 32px 32px 0px 32px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+      .leftTextPart{
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        padding: 2%;
+      }
+      .bannerHeading{
+        position: static;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 19px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #ff9500;
+        display: flex;
+      }
+      .newcls{
+        margin-left: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .banner-subHeading{
+        font-weight: 600;
+        line-height: 40px;
+        font-size: 28px;
+        color: #414b5d;
+        margin: 8px 0px 16px 0px;
+      }
+      .optOne{
+        margin-right: 10px;
+      }
+      .optOneText{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        margin-bottom: 16px;
+        color: #232832;
+      }
+      .rightImage{
+        padding-top: 5%;
+      }
+      .fifth-MainContainer{
+      padding: 0;
+      padding: 20px 0;
+      }
+      .fifth-container{
+        width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+      }
+      .leftStories{
+        width: 35%;
+        padding-right: 37px;
+      }
+      .client-Heading{
+    color: #2870c1;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 17px;
+    padding-bottom: 10px;
+    text-align: left;
+    text-transform: uppercase;
+}
+  .client-subheading {
+    color: #414b5d;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 40px;
+    text-align: left;
+}
+  .client-text {
+    color: #232832;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    padding-right: 21px;
+    padding-top: 21px;
+    text-align: left;
+}  
+    .blog-section {
+      text-align: left;
+    }
+    .section-heading {
+      font-size: 20px;
+      font-weight: 600;
+      color: #ff9500;
+      margin-top: 20px;
+    }
+    .new-heading {
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    .blog-image {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .blog-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+    padding-bottom: 30px;
+  }
+
+  .blog-image:hover img {
+    transform: scale(1.1);
+    transform-origin: center;
+  }
+    .image-heading {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .image-text {
+      font-size: 14px;
+      color: #666;
+    }
+    .col-md-4{
+        max-width: 30%;
+    }
+    .question-heading{
+        font-size: 18px;
+        font-weight: 600;
+        color: #ff9500;
+    }
+    .sub-heading{
+        font-size: 22px;
+        padding-bottom: 30px;
+        font-weight: 500;
+    }
+    .ques-container{
+display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0px;    
+    }
+    .question-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.question-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+    .card-heading-question{
+        text-align: left;
+        padding-bottom: 20px;
+    }
+    /****fifth container********/
+
+  .fifth-container{
+    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  /* align-items: center; */
+
+  }
+  .leftStories{
+    width: 35%;
+    padding-right: 37px;
+  }
+  .client-Heading{
+color: #ff9500;
+font-size: 14px;
+font-weight: 700;
+letter-spacing: 1px;
+line-height: 17px;
+padding-bottom: 10px;
+text-align: left;
+text-transform: uppercase;
+}
+.client-subheading {
+color: #414b5d;
+font-size: 28px;
+font-weight: 600;
+line-height: 40px;
+text-align: left;
+}
+.client-text {
+color: #232832;
+font-size: 14px;
+font-weight: 400;
+line-height: 20px;
+padding-right: 21px;
+padding-top: 21px;
+text-align: left;
+}   
+.rightStories{
+   padding-left: 5%;
+}
+.carouselWidth{
+    width: 100%;
+}
+.profileImage{
+border-radius: 50%;
+height: 70px;
+object-fit: cover;
+width: 70px;
+
+}
+.profileImageName{
+color: #191b1f;
+font-size: 14px;
+font-weight: 500;
+line-height: 10px;
+text-align: center;
+}
+.profileRole{
+color: #7c8ba2;
+font-size: 13px;
+font-weight: 600;
+line-height: 1px;
+text-align: center;
+}
+.line-separator {
+display: flex;
+justify-items: center;
+border: 2px solid #ff9500;
+border-radius: 5px;
+width: 50px;
+margin: 0 auto;
+}
+.client-feedback {
+color: #232832;
+font-size: 14px;
+font-weight: 400;
+line-height: 20px;
+text-align: center;
+width: 207px;
+padding-top: 10px;
+}
+.carousel-control-prev-icon::before,
+  .carousel-control-next-icon::before {
+    content: '\2039'; 
+    font-size: 30px;
+    color: #ff9500;
+    z-index: 2;
+  }
+
+  .carousel-control-next-icon::before {
+    content: '\203A';
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .carousel-control-prev {
+    left: 0%;
+  }
+
+  .carousel-control-next {
+    right: 0%;
+  }
+    @media (max-width: 767px) {
+  .product-card.flex {
+    flex-direction: column;
+    width: 90%;
+  }
+  .borderr{
+    border: none;
+    border-bottom: 1px solid #c5ced7;
+  }
+  .secondContainer {
+    gap: 40px;
+    justify-content: center;
+}
+   .mobile-flex-column {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; 
+      padding: 20px 0;
+    }
+    .left {
+    padding-left: 42px;
+    width: 100%;
+    padding-bottom: 30px;
+}
+.rightImage{
+    width: 90% !important;
+}
+.col-md-4{
+        max-width: 100%;
+    }
+    .question-card {
+    margin-bottom: 20px;
+  }
+
+.fifth-MainContainer{
+    padding: 10px 0px;
+}
+
+.leftStories {
+    width: 100%;
+    padding: 10px 10px;
+}
+.rightStories{
+    padding: 0px;
+    margin:  0 auto;
+}
+.none{
+    display: none;
+}
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container py-3">
+      <p class="post">Post A Job</p>
+      <p class="heading">Quick & Easy Job Posting − Get Quality Applies</p>
+      <div class="row justify-content-center card-container">
+        <div class="product-card">
+          <div class="card-body px-4 py-4">
+            <p class="card-heading">HOT-VACANCY</p>
+            <p class="card-label">Advanced Job Posting</p>
+            <div class="text-center">
+              <span class="card-currency">₹</span
+              ><span class="card-price">1650</span>
+            </div>
+            <p class="available-location">For All Cities</p>
+            <div class="card-available-features">
+              <div class="card-feature-available-image"></div>
+              <span class="card-feature-available-text"
+                >Detailed Job Description</span
+              >
+            </div>
+            <div class="card-available-features">
+              <div class="card-feature-available-image"></div>
+              <span class="card-feature-available-text"
+                >Boost on Job Search Page</span
+              >
+            </div>
+            <div class="card-available-features">
+              <div class="card-feature-available-image"></div>
+              <span class="card-feature-available-text">Job Branding</span>
+            </div>
+           <div class="card-product-quantity-container">
+      <div class="qualityDiv">
+        <div class="quality">Quantity :</div>
+        <div class="dropdown">
+          <button class="btn new-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            01
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">02</a></li>
+            <li><a class="dropdown-item" href="#">03</a></li>
+            <li><a class="dropdown-item" href="#">04</a></li>
+          </ul>
+        </div>
+        <div class="totalPrice">
+          <span class="total">Total</span>
+          <span class="totalAmt">₹</span>
+          <span class="amt">1650</span>
+        </div>
+      </div>
+    </div>
+            <div class="discounts">
+              <p>Flat 10% OFF | Buy 5 Job Postings or more</p>
+            </div>
+            <button class="btn buyBtn">Buy Now</button>
+            <button class="btn cartBtn">Add to cart</button>
+          </div>
+        </div>
+        <!-- 2nd div starts -->
+        
+        <div class="product-card flex">
+          <div class="card-body ">
+            <p class="card-heading">HOT-VACANCY</p>
+            <p class="card-label">Advanced Job Posting</p>
+            <div class="text-center">
+              <span class="card-currency">₹</span
+              ><span class="card-price">850</span>
+            </div>
+            <p class="available-location">For All Cities</p>
+            <div class="card-available-features">
+              <div class="card-feature-available-image"></div>
+              <span class="card-feature-available-text"
+                >Detailed Job Description</span
+              >
+            </div>
+            <div class="card-available-features">
+              <div class="card-feature-available-image"></div>
+              <span class="card-feature-available-text"
+                >Boost on Job Search Page</span
+              >
+            </div>
+            <div class="card-available-features">
+              <div class="card-feature-available-image"></div>
+              <span class="card-feature-available-text">Job Branding</span>
+            </div>
+            <div class="card-product-quantity-container">
+              <div class="qualityDiv">
+                <div class="quality">Quantity :</div>
+                <div class="dropdown">
+                  <button
+                    class="btn new-btn dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    01
+                  </button>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="dropdownMenuButton1"
+                  >
+                    <li><a class="dropdown-item" href="#">02</a></li>
+                    <li><a class="dropdown-item" href="#">03</a></li>
+                    <li><a class="dropdown-item" href="#">04</a></li>
+                  </ul>
+                </div>
+                <div class="totalPrice">
+                  <span class="total">Total</span>
+                  <span class="totalAmt">₹</span>
+                  <span class="amt">850</span>
+                </div>
+              </div>
+            </div>
+            <div class="discounts">
+              <p>Flat 10% OFF | Buy 5 Job Postings or more</p>
+            </div>
+            <button class="btn buyBtn">Buy Now</button>
+            <button class="btn cartBtn">Add to cart</button>
+          </div>
+          <!-- <div class="card-body">
+            <p class="card-heading">HOT-VACANCY</p>
+            <p class="card-label">Advanced Job Posting</p>
+            <div class="text-center">
+              <span class="card-currency">₹</span
+              ><span class="card-price">400</span>
+            </div>
+            <p class="available-location">For All Cities</p>
+            <div class="card-available-features">
+              <div class="card-feature-available-image"></div>
+              <span class="card-feature-available-text"
+                >Detailed Job Description</span
+              >
+            </div>
+            <div class="card-available-features">
+              <div class="card-feature-available-image"></div>
+              <span class="card-feature-available-text"
+                >Boost on Job Search Page</span
+              >
+            </div>
+            <div class="card-available-features">
+              <div class="card-feature-available-image"></div>
+              <span class="card-feature-available-text">Job Branding</span>
+            </div>
+            <div class="card-product-quantity-container">
+              <div class="qualityDiv">
+                <div class="quality">Quantity :</div>
+                <div class="dropdown">
+                  <button
+                    class="btn new-btn dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    01
+                  </button>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="dropdownMenuButton1"
+                  >
+                    <li><a class="dropdown-item" href="#">02</a></li>
+                    <li><a class="dropdown-item" href="#">03</a></li>
+                    <li><a class="dropdown-item" href="#">04</a></li>
+                  </ul>
+                </div>
+                <div class="totalPrice">
+                  <span class="total">Total</span>
+                  <span class="totalAmt">₹</span>
+                  <span class="amt">400</span>
+                </div>
+              </div>
+            </div>
+            <div class="discounts">
+              <p>Flat 10% OFF | Buy 5 Job Postings or more</p>
+            </div>
+            <button class="btn buyBtn">Buy Now</button>
+            <button class="btn cartBtn">Add to cart</button>
+          </div> -->
+        </div>
+        <!-- 3rd div starts -->
+        <div class="product-card">
+          <div class="card-body">
+            <p class="card-heading">HOT-VACANCY</p>
+            <p class="card-label">Advanced Job Posting</p>
+            <div class="text-center">
+              <span class="card-currency">₹</span
+              ><span class="card-price">400</span>
+            </div>
+            <p class="available-location">For All Cities</p>
+            <div class="card-available-features">
+              <div class="card-feature-available-image"></div>
+              <span class="card-feature-available-text"
+                >Detailed Job Description</span
+              >
+            </div>
+            <div class="card-available-features">
+              <div class="card-feature-available-image"></div>
+              <span class="card-feature-available-text"
+                >Boost on Job Search Page</span
+              >
+            </div>
+            <div class="card-available-features">
+              <div class="card-feature-available-image"></div>
+              <span class="card-feature-available-text">Job Branding</span>
+            </div>
+            <div class="card-product-quantity-container">
+              <div class="qualityDiv">
+                <div class="quality">Quantity :</div>
+                <div class="dropdown">
+                  <button
+                    class="btn new-btn dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    01
+                  </button>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="dropdownMenuButton1"
+                  >
+                    <li><a class="dropdown-item" href="#">02</a></li>
+                    <li><a class="dropdown-item" href="#">03</a></li>
+                    <li><a class="dropdown-item" href="#">04</a></li>
+                  </ul>
+                </div>
+                <div class="totalPrice">
+                  <span class="total">Total</span>
+                  <span class="totalAmt">₹</span>
+                  <span class="amt">400</span>
+                </div>
+              </div>
+            </div>
+            <div class="discounts">
+              <p>Flat 10% OFF | Buy 5 Job Postings or more</p>
+            </div>
+            <button class="btn buyBtn">Buy Now</button>
+            <button class="btn cartBtn">Add to cart</button>
+          </div>
+        </div>
+      </div>
+      <ul class="footerList">
+        <li>
+          For quantities upto 4, job posting credits should be consumed within
+          30 days from the date of activation/purchase.
+        </li>
+        <li>
+          For quantities 5 and above, credits should be consumed within 1 year
+          from the date of activation/purchase.
+        </li>
+        <li>
+          Please note that the amounts are exclusive of taxes. Taxes will be
+          added as applicable.
+        </li>
+        <li>
+          Discount percentage have been rounded off to the nearest number.
+        </li>
+        <li>
+          Metro cities include Delhi/NCR(National Capital Region), Delhi,
+          Gurgaon, Noida, Greater Noida, Ghaziabad, Faridabad, Mumbai and Mumbai
+          Suburbs, Thane, Navi Mumbai, Pune, Chennai, Bengaluru/Bangalore,
+          Kolkata, Hyderabad/Secunderabad and Ahmedabad
+        </li>
+      </ul>
+    </div>
+    <div class="container secondMain-container">
+      <p class="post">KEY BENEFITS</p>
+      <p class="heading">Why Choose Spires Job Posting?</p>
+      <div class="row  secondContainer">
+        <div class="card customeCard">
+          <div>
+            <img
+              src="instagram-post.gif"
+              alt="post"
+              height="100px"
+              width="100px"
+            />
+          </div>
+          <p class="seondHeading">2 Minutes to Post</p>
+          <p class="secondPara">
+            Quick and easy to post job posting with<br />
+            highly optimised job posting form
+          </p>
+        </div>
+        <!-- second card -->
+        <div class="card customeCard">
+          <div>
+            <img src="audience.gif" alt="post" height="100px" width="100px" />
+          </div>
+          <p class="seondHeading">Attract Audience</p>
+          <p class="secondPara">
+            Quick and easy to post job posting with<br />
+            highly optimised job posting form
+          </p>
+        </div>
+        <!-- 3rd card -->
+        <div class="card customeCard">
+          <div>
+            <img src="training.gif" alt="post" height="100px" width="100px" />
+          </div>
+          <p class="seondHeading">30 days visibility</p>
+          <p class="secondPara">
+            Quick and easy to post job posting with<br />
+            highly optimised job posting form
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container thirdMain-container">
+      <div class="third-container">
+        <div class="d-flex align-items-center mobile-flex-column">
+          <div class="left">
+            <h3 class="leftHeading">
+              Search Candidates from India’s<br />
+              Largest Talent Pool
+            </h3>
+            <p class="leftPara">
+              Source candidates from Resdex − India’s largest Talent Pool and
+              <br />find the perfect talent for your organisation.
+            </p>
+            <a href="#"
+              ><span class="pr-2">View All Resdex Plans</span
+              ><span class="fas-fa-arrow-right"
+                ><i class="fas fa-arrow-right"></i
+              ></span>
+            </a>
+          </div>
+          <div class="right">
+            <img src="candidate.png" height="400" width="300" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container fourthMain-container">
+        <div class="fourth-container  mobile-flex-column ">
+          <div class="leftTextPart">
+            <div class="bannerHeading">
+                <span>INTRODUCING THE PRODUCTIVITY ENHANCEMENT</span>
+                <div class="newcls"><img src="https://sps.mgu.ac.in/wp-content/uploads/2021/10/new-icon-gif-9.gif" alt="new" height="20" width="50"></div> 
+            </div>
+            <div class="banner-subHeading">Spires Recruiter App</div>
+            <div class="d-flex">
+                <div class="optOne"><img src="https://media.istockphoto.com/id/538098895/zh/%E5%90%91%E9%87%8F/orange-check-mark.jpg?s=612x612&w=0&k=20&c=pa6Jo65iEcVEHUX-s5Q6u6lrVF0JbZks94S_8A5aucU=" height="15" width="15"></div>
+                <div class="optOneText">Increase your productivity by calling candidates directly from the app</div>
+            </div>
+            <div class="d-flex">
+                <div class="optOne"><img src="https://media.istockphoto.com/id/538098895/zh/%E5%90%91%E9%87%8F/orange-check-mark.jpg?s=612x612&w=0&k=20&c=pa6Jo65iEcVEHUX-s5Q6u6lrVF0JbZks94S_8A5aucU=" height="15" width="15"></div>
+                <div class="optOneText">Reduce follow ups and increase jobseeker connect rate by specifying the calling intent</div>
+            </div>
+            <div class="d-flex">
+                <div class="optOne"><img src="https://media.istockphoto.com/id/538098895/zh/%E5%90%91%E9%87%8F/orange-check-mark.jpg?s=612x612&w=0&k=20&c=pa6Jo65iEcVEHUX-s5Q6u6lrVF0JbZks94S_8A5aucU=" height="15" width="15"></div>
+                <div class="optOneText">Search candidates on the go through Resdex in App</div>
+            </div>
+            <div class="d-flex">
+                <div class="optOne"><img src="https://media.istockphoto.com/id/538098895/zh/%E5%90%91%E9%87%8F/orange-check-mark.jpg?s=612x612&w=0&k=20&c=pa6Jo65iEcVEHUX-s5Q6u6lrVF0JbZks94S_8A5aucU=" height="15" width="15"></div>
+                <div class="optOneText">Scan phone numbers from anywhere and call directly from the App</div>
+            </div>
+            <div class="d-flex">
+                <div class="optOne"><img src="https://media.istockphoto.com/id/538098895/zh/%E5%90%91%E9%87%8F/orange-check-mark.jpg?s=612x612&w=0&k=20&c=pa6Jo65iEcVEHUX-s5Q6u6lrVF0JbZks94S_8A5aucU=" height="15" width="15"></div>
+                <div class="optOneText">Get instant notifications on job applies</div>
+            </div>
+            <div class="d-flex">
+                <div><img src="https://fireship.io/lessons/pwa-to-play-store/img/googleplay-badge.png" alt="app store" height="50" width="110"></div>
+                <div><img src="https://e7.pngegg.com/pngimages/314/368/png-clipart-itunes-app-store-apple-logo-apple-text-rectangle.png" alt="app store" height="50" width="110"></div>
+            </div>
+          </div>         
+          <div class="rightImagePart">
+            <img class="rightImage" src="https://img.freepik.com/premium-vector/student-using-mobile-phone-searching-jobs-find-job-online-smartphone_530733-1324.jpg?w=2000" width="400">
+          </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container fifth-MainContainer ">
+            <div class="text-center">
+            <div class="fifth-container">
+              <div class="leftStories">
+                <h3 class="client-Heading">SUCCESS STORIES</h3>
+                <h1 class="client-subheading">Recruiters Recommend Naukri</h1>
+                <p class="client-text">Naukri is used as the main tool for talent acquistion by lacs of recruiters across all kinds and sizes of industry. They appreciate Naukri’s services and highly recommend it as the one-stop solution to all the hiring needs of a company.</p>
+              </div>
+              <div class="rightStories">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox"> 
+                        <div class="carousel-item active">
+                            <div class="container">
+                              <div class="row card-container">
+                      <!-- <img class="d-block img-fluid" src="..." alt="First slide"> -->
+                      <div class="card text-center customeCard">
+                        <div><img class="profileImage" src="https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg" height="100" width="100"></div>
+                      <p class="profileImageName">Miss Kreeti Mathur</p>
+                      <p class="profileRole">Human Resources ISGEC</p>
+                      <p class="line-separator"></p>
+                      <p class="client-feedback">As a Core Engineering Employer, I feel confident of having relevant , available and genuine Resumes through RESDEX. Its Search Engine Capabilities , keyword and Resume Parsing techniques are unbeatable.Its reporting tools</p>
+                      </div>
+                      <div class="card text-center customeCard none">
+                        <div><img class="profileImage" src="https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg" height="100" width="100"></div>
+                      <p class="profileImageName">Miss Kreeti Mathur</p>
+                      <p class="profileRole">Human Resources ISGEC</p>
+                      <p class="line-separator"></p>
+                      <p class="client-feedback">As a Core Engineering Employer, I feel confident of having relevant , available and genuine Resumes through RESDEX. Its Search Engine Capabilities , keyword and Resume Parsing techniques are unbeatable.Its reporting tools</p>
+                      </div></div>
+                    </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div class="container">
+                      <!-- <img class="d-block img-fluid" src="..." alt="Second slide"> -->
+                      <div class="row card-container">
+                        <!-- <img class="d-block img-fluid" src="..." alt="First slide"> -->
+                        <div class="card text-center customeCard">
+                          <div><img class="profileImage" src="https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg" height="100" width="100"></div>
+                        <p class="profileImageName">Miss Kreeti Mathur</p>
+                        <p class="profileRole">Human Resources ISGEC</p>
+                        <p class="line-separator"></p>
+                        <p class="client-feedback">As a Core Engineering Employer, I feel confident of having relevant , available and genuine Resumes through RESDEX. Its Search Engine Capabilities , keyword and Resume Parsing techniques are unbeatable.Its reporting tools</p>
+                        </div>
+                        <div class="card text-center customeCard none">
+                          <div><img class="profileImage" src="https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg" height="100" width="100"></div>
+                        <p class="profileImageName">Miss Kreeti Mathur</p>
+                        <p class="profileRole">Human Resources ISGEC</p>
+                        <p class="line-separator"></p>
+                        <p class="client-feedback">As a Core Engineering Employer, I feel confident of having relevant , available and genuine Resumes through RESDEX. Its Search Engine Capabilities , keyword and Resume Parsing techniques are unbeatable.Its reporting tools</p>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div class="container">
+                      <!-- <img class="d-block img-fluid" src="..." alt="Third slide"> -->
+                      <div class="row card-container">
+                        <!-- <img class="d-block img-fluid" src="..." alt="First slide"> -->
+                        <div class="card text-center customeCard">
+                          <div><img class="profileImage" src="https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg" height="100" width="100"></div>
+                        <p class="profileImageName">Miss Kreeti Mathur</p>
+                        <p class="profileRole">Human Resources ISGEC</p>
+                        <p class="line-separator"></p>
+                        <p class="client-feedback">As a Core Engineering Employer, I feel confident of having relevant , available and genuine Resumes through RESDEX. Its Search Engine Capabilities , keyword and Resume Parsing techniques are unbeatable.Its reporting tools</p>
+                        </div>
+                        <div class="card text-center customeCard none">
+                          <div><img class="profileImage" src="https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg" height="100" width="100"></div>
+                        <p class="profileImageName">Miss Kreeti Mathur</p>
+                        <p class="profileRole">Human Resources ISGEC</p>
+                        <p class="line-separator"></p>
+                        <p class="client-feedback">As a Core Engineering Employer, I feel confident of having relevant , available and genuine Resumes through RESDEX. Its Search Engine Capabilities , keyword and Resume Parsing techniques are unbeatable.Its reporting tools</p>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleSlidesOnly" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleSlidesOnly" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                  </div>
+                </div>
+      
+                <!-- <div class="row card-container">
+                  <div class="card text-center customeCard">
+                    <div><img class="profileImage" src="https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg" height="100" width="100"></div>
+                  <p class="profileImageName">Miss Kreeti Mathur</p>
+                  <p class="profileRole">Human Resources ISGEC</p>
+                  <p class="line-separator"></p>
+                  <p class="client-feedback">As a Core Engineering Employer, I feel confident of having relevant , available and genuine Resumes through RESDEX. Its Search Engine Capabilities , keyword and Resume Parsing techniques are unbeatable.Its reporting tools</p>
+                  </div>
+                  <div class="card text-center customeCard">
+                    <div><img class="profileImage" src="https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg" height="100" width="100"></div>
+                  <p class="profileImageName">Miss Kreeti Mathur</p>
+                  <p class="profileRole">Human Resources ISGEC</p>
+                  <div class="line-separator"></div>
+                  <p class="client-feedback">As a Core Engineering Employer, I feel confident of having relevant , available and genuine Resumes through RESDEX. Its Search Engine Capabilities , keyword and Resume Parsing techniques are unbeatable.Its reporting tools</p>
+                  </div>
+                </div> -->
+      
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="blog-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <h2 class="section-heading">Naukri Blog</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="new-heading">What's New</h2>
+        </div>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col-md-4 " >
+          <div class="blog-image">
+            <img src="https://static.naukimg.com/s/5/117/i/blog_1.fdc0d37cd7ffe4574e73.jpg" alt="Image 1">
+          </div>
+          <h3 class="image-heading">Get More Responses</h3>
+          <p class="image-text">Quickly connect with jobseekers through chat and get more responses.</p>
+        </div>
+        <div class="col-md-4 " >
+          <div class="blog-image">
+            <img src="https://static.naukimg.com/s/5/117/i/blog_1.fdc0d37cd7ffe4574e73.jpg" alt="Image 2">
+          </div>
+          <h3 class="image-heading">Chat with Jobseekers</h3>
+          <p class="image-text">Quickly connect with jobseekers through chat and get more responses.</p>
+        </div>
+        <div class="col-md-4" >
+          <div class="blog-image">
+            <img src="https://static.naukimg.com/s/5/117/i/blog_1.fdc0d37cd7ffe4574e73.jpg" alt="Image 3">
+          </div>
+          <h3 class="image-heading">Connect and Engage</h3>
+          <p class="image-text">Quickly connect with jobseekers through chat and get more responses.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="question-section ">
+    <div class="container ques-container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="question-heading">HAVE ANY QUESTIONS?</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="sub-heading">Start posting jobs and reach out<br>to India's biggest Talent Pool</h2>
+        </div>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col-md-4 col-sm-12">
+          <div class="question-card">
+            <h3 class="card-heading-question">Q: What is Naukri?</h3>
+            <p class="card-text">Naukri is India's leading job portal.</p>
+            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="question-card">
+            <h3 class="card-heading-question">Q: How do I post a job?</h3>
+            <p class="card-text">You can post a job by creating an employer account and following the steps.</p>
+            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="question-card">
+            <h3 class="card-heading-question">Q: Can I edit my job posting?</h3>
+            <p class="card-text">Yes, you can edit your job posting anytime from your employer dashboard.</p>
+            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </body>
+</html>
